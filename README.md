@@ -37,7 +37,9 @@ knowns = [
 ]
 ```
 
-Such a structure will also make it easy to scan for the purpose of avoiding asking the same questions again and again.  So if the binary string comes up with object=3, equation=2, and variable=1, we can avoid asking it, since an answer to this question is already in the `knowns` structure.
+* Such a structure will also make it easy to scan for the purpose of avoiding asking the same questions again and again.  So if the binary string comes up with object=3, equation=2, and variable=1, we can avoid asking it, since an answer to this question is already in the `knowns` structure.
+
+* This will also make it easy to check for the constraint warnings.
 
 ## Keeping numbers in range
 
