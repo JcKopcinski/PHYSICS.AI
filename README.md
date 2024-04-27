@@ -2,7 +2,9 @@
 
 # 24-April-2014
 
-* Justin: keep working on code and getting the questions asked, as dictated by the binary string.
+* Justin: keep working on code and getting the questions asked, as dictated by the binary string. It think it's all on the right track.
+
+## Storing answers
 
 * Think about a data structure to keep track of the student's answers.
 
@@ -12,16 +14,15 @@
     1. The variable in the equation asked about
     1. The student's response
 
-## Storing answers
-* For storing answers, I'd recommend a list of dictionaries.  The list can grow and store each answer, and each dictionary in the list will be a given answer.  
+* For storing answers, maybe a list of dictionaries will work.  The list can grow to store each answer. Each dictionary in the list is a given answer.  
 
 * Suppose we call our list of knowns `knowns`. Initially it'll start empty like
 
-```
+```python
 knowns = []
 ```
 
-With each answer that comes in, we'll store the object #, equation #, variable #, and student response. After a couple of questions, `knowns` might look like this:
+With each answer that comes in, we'll store the object #, equation #, variable # asked about, and the student's response. After a couple of questions, `knowns` might look like this:
 
 
 ```python
@@ -31,14 +32,21 @@ knowns = [
 ]
 ```
 
-Such a structure will also make it each to scan and avoid asking the same question again.  So if the binary string comes up with object=3, equation=2, and variable=1, we can avoid asking it, since this question has already been asked and answered.
+Such a structure will also make it easy to scan for the purpose of avoiding asking the same questions again and again.  So if the binary string comes up with object=3, equation=2, and variable=1, we can avoid asking it, since an answer to this question is already in the `knowns` structure.
 
 ## Keeping numbers in range
 
 If a number from the binary string is out of range, for example, it want to ask about equation 7, but we only have 3 equations, you can do this
 
-1. ignore the request
-2. Do a `equation_num = equation_num % max_equations` Here the `%` is the modulus operator, which returns the remainder of a division, which will always be a number between `0...max_equations`.
+1. ignore the request and just go on to the next one.
+
+2. Suppose `equation_num` came right off of the binary string. Do a 
+
+```python
+equation_num = equation_num % max_equations
+```
+
+Here the `%` is the "modulus operator," which returns the remainder of the division of the two arguments, which here will always be a number between `0...max_equations`.
 
 Assuming we have something like
 
