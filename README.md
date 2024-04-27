@@ -8,6 +8,22 @@
 
 * It is possible that at some point, your code will run out of questions to ask.  This is when we'll run the optimizer through forward step, which will generate a new set of binary strings, a bit closer to the solution.
 
+## Storing objects (trucks, stones, etc.)
+* On your data structure that keeps track of objects. Start with an empty list like
+
+```objects = []```
+
+As you add them, you'll have an object number (from the binary string) (say `object_number`) and name (from the student, say `object_name`). You can add them like this:
+
+```python
+objects.append({object_number: object_name})
+```
+
+So you'll have a list of dictionaries of objects. After a while it might look like this:
+
+```python
+objects = {3: "stone", 5: "truck", 1: "window"}
+```
 
 ## Storing answers
 
