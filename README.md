@@ -4,6 +4,11 @@
 
 * Justin: keep working on code and getting the questions asked, as dictated by the binary string. It think it's all on the right track.
 
+* Also: I was thinking about your function that explicitly asks about time information.  Try to base your code around the logic of relying solely on the binary string to determine what question to ask, about what object, equation, and variable.  See the equation data-structure below, where certainly the binary string will ask about variables in equation 2 (the `dt=t-t0` equation).
+
+* It is possible that at some point, your code will run out of questions to ask.  This is when we'll run the optimizer through forward step, which will generate a new set of binary strings, a bit closer to the solution.
+
+
 ## Storing answers
 
 * Think about a data structure to keep track of the student's answers.
@@ -67,7 +72,7 @@ eqns = {
 
             2: {
                     "text": "dt = t - t0",
-                    "vars": ["t", "t0"],
+                    "vars": ["t", "t0","dt"],
                     "var_count": 3
             }
 }
