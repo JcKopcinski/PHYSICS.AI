@@ -8,7 +8,7 @@
 
 * Think about a data structure to keep track of the student's answers.
 
-* Stored answers should consist of 4 itenms
+* Stored answers should consist of 4 items
     1. The object number asked about
     1. The equation number asked about
     1. The variable in the equation asked about
@@ -36,9 +36,9 @@ Such a structure will also make it easy to scan for the purpose of avoiding aski
 
 ## Keeping numbers in range
 
-If a number from the binary string is out of range, for example, it want to ask about equation 7, but we only have 3 equations, you can do this
+If a number from the binary string is out of range, for example, it wants to ask about equation 7, but we only have 3 equations, you can do this
 
-1. ignore the request and just go on to the next one.
+1. Ignore the request and just go on to the next one.
 
 2. Suppose `equation_num` came right off of the binary string. Do a 
 
@@ -77,4 +77,4 @@ we can say `max_equations = len(eqns)`
 
 ## Contraints
 
-I'll keep working on the contraint warning logic and code in the file called `constraints.py.`
+I'll keep working on the contraint warning logic and code in the file called `constraints.py.` Like I said, I'll give you a function like `warn()` that will return `False` if you should not accept a student's 'yes' answer to a question.
