@@ -2,24 +2,34 @@
 
 # 24-April-2014
 
+## Notes on meeting
+
 * Justin: keep working on code and getting the questions asked, as dictated by the binary string. It think it's all on the right track.
 
-* Also: I was thinking about your function that explicitly asks about time information.  Try to base your code around the logic of relying solely on the binary string to determine what question to ask, about what object, equation, and variable.  See the equation data-structure below, where certainly the binary string will ask about variables in equation 2 (the `dt=t-t0` equation).
+* Also: I was thinking about your function that explicitly asks about time information.  Try to base your code solely around the logic what the binary string tells you what question to ask, about what object, equation, and variable.  
 
-* It is possible that at some point, your code will run out of questions to ask.  This is when we'll run the optimizer through forward step, which will generate a new set of binary strings, a bit closer to the solution.
+        * In terms of your time interval function, see the equation data-structure below.  Certainly the binary string will eventually ask about variables in equation 2 (the `dt=t-t0` equation).
+
+* It is possible that at some point, your code will run out of questions to ask.  This is when we'll run the optimizer through forward step, which will generate a new set of binary strings, a bit closer to the solution with a whole new (and more focused) question path.
 
 ## Storing objects (trucks, stones, etc.)
-* On your data structure that keeps track of objects. Start with an empty list like
+* On your data structure that keeps track of objects. I notices you have an empty list about 6 objects long, that looked like this in your terminal window:
+
+```python
+objects[null,null,null,null,null]
+```
+
+It might be more robuts to start with an empty list like this:
 
 ```objects = []```
 
-As you add them, you'll have an object number (from the binary string) (say `object_number`) and name (from the student, say `object_name`). You can add them like this:
+As you ask about objects seen in a problem, you'll have an object number (from the binary string) (say `object_number`) and name (from the student, say `object_name`). You can add them like this (put the object number and name in a dictionary, then add it to the growing object list):
 
 ```python
 objects.append({object_number: object_name})
 ```
 
-So you'll have a list of dictionaries of objects. After a while it might look like this:
+So the `objects` list will contain `{number: name}` style dictionaries of objects. After a while it might look like this:
 
 ```python
 objects = {3: "stone", 5: "truck", 1: "window"}
