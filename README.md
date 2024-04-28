@@ -15,10 +15,10 @@
 * On your data structure that keeps track of objects. I notices you have an empty list about 6 objects long, that looked like this in your terminal window:
 
 ```python
-objects[null,null,null,null,null]
+objects = [null,null,null,null,null]
 ```
 
-It might be more robuts to start with an empty list like this:
+It might be more robust to start with an empty list like this:
 
 ```objects = []```
 
