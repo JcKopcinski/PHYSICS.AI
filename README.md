@@ -7,7 +7,7 @@
 * Justin: keep working on code and getting the questions asked, as dictated by the binary string. It think it's all on the right track.
 
 * Also: I was thinking about your function that explicitly asks about time information.  Try to base your code solely around the logic what the binary string tells you what question to ask, about what object, equation, and variable.  
-        * In terms of your time interval function, see the equation data-structure below.  Certainly the binary string will eventually ask about variables in equation 2 (the `dt=t-t0` equation).
+  * In terms of your time interval function, see the equation data-structure below.  Certainly the binary string will eventually ask about variables in equation 2 (the `dt=t-t0` equation).
 
 * It is possible that at some point, your code will run out of questions to ask.  This is when we'll run the optimizer through forward step, which will generate a new set of binary strings, a bit closer to the solution with a whole new (and more focused) question path.
 
