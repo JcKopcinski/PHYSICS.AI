@@ -1,6 +1,6 @@
 import random
 
-ATTRIBUTES = 3 #object, equation, varaible
+ATTRIBUTES = 4 #object, equation, varaible, sequence
 
 eqns = {
             0: {
@@ -39,11 +39,12 @@ def check_tval(object_):
         eqns[1]["vars"][3] = time_interval_description
     return
 
-def check_position(object_):
-    response = input("Do you know anything about the position of " + object_ + "? ")
-    if response == "yes" or response == 'y':
-        if eqns[1]["vars"][3] is "d" or eqns[0]["vars"][4] is "dt":
 
-    return
+# def check_position(object_):
+#     response = input("Do you know anything about the position of " + object_ + "? ")
+#     if response == "yes" or response == 'y':
+#         if eqns[1]["vars"][3] is "d" or eqns[0]["vars"][4] is "dt":
+
+#     return
 
 #convert bits into their bitwise values

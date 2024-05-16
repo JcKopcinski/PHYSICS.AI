@@ -1,7 +1,7 @@
 import sympy as sp
 from function_definitions import *
 
-NUM_BITS = 27 #number of bits in bitString. (current implementation NUM_BITS must be a divisible integer of ATTRIBUTES)
+NUM_BITS = 36 #number of bits in bitString. (current implementation NUM_BITS must be a divisible integer of ATTRIBUTES)
 
 if __name__ == "__main__":
 
@@ -10,7 +10,8 @@ if __name__ == "__main__":
 
     vals = [int(i, 2) for i in bitList] #convert bitStrings to integers
 
-    objectList = [None] * ((2**ATTRIBUTES)) #initialize object list to empty
+    objectList = [] #initialize object list to empty
+
 
     #-------------------------DEBUG------------------
     print("bitString: " + bitString)
@@ -19,26 +20,38 @@ if __name__ == "__main__":
     print(objectList)
     #-------------------------DEBUG------------------
 
-    #BUILD OBJECT LIST ----- MOVE TO FUNCTION
-    for i in vals[::3]: #use list slicing to find each set
-        if not objectList[i] and i == vals[0]: #check if there is an object at this position of the set
-            object_response = input("Do you see any objects in the problem? ") #ask about the object
-            if(object_response == 'y' or object_response == "yes"): #check if response is affirmative
-                object_name = input("What is the object? ")
-                objectList[vals[i]] = object_name #set the object name
-                
-            else:
-                break
+    #count by 3 on each iteration
+    for i in range(0, len(vals), 4):
+        objectNumber = i
+        equationNumber = vals[i+1]
+        variableNumber = vals[i+2]
+        sequenceNumber = vals[i+3]
+
+        object_response = input("Do you see any objects in the problem? ") #ask about the object
+        if(object_response == 'y' or object_response == "yes"): #check if response is affirmative
+            object_name = input("What is the object? ") #get the object's name
         else:
-            object_response = input("Do you see any more objects in the problem? ") #ask about the object
-            if(object_response == 'y' or object_response == "yes"): #check if response is affirmative
-                object_name = input("What is the object? ")
-                objectList[vals[i]] = object_name
-            else: #exit if no more objects in problem
-                break
-    if all(obj is None for obj in objectList): #no information on object provided by user
-        print("No objects were provided. Exiting program.")
-        exit()
-    #----------------------------------------
-    
-    print(objectList)
+            print("No object seen...exiting")
+        #get variable and equation
+        print("variableNumber: ", variableNumber)
+        print("equationNumber: ", equationNumber)
+
+        #bounds check by modulus the size
+        if(equationNumber > len(eqns)-1):
+            equationNumber = equationNumber % len(eqns)
+        if(eqns[equationNumber]["var_count"] < variableNumber):
+            variableNumber = variableNumber % eqns[equationNumber]["var_count"] #check for out of bounds
+        
+        variable = eqns[equationNumber]["vars"][variableNumber] #get the variable
+        equation = eqns[equationNumber]["text"] #get the equation
+
+        #ask about variable and equation
+        response = input(f"Do you know anything about {variable} of {object_name}?")
+
+        #ask for variable and equation number
+        objectList.append({"Object": objectNumber, "equation": equationNumber,
+                            "variable": variableNumber, "sequence": sequenceNumber, "response": response})
+        #dictionary with 3 key value pairs
+
+    for item in objectList:
+        print(item, "\n")
