@@ -1,6 +1,6 @@
 import random
 
-ATTRIBUTES = 4 #object, equation, varaible, sequence
+ATTRIBUTES = 3 #object, equation, varaible, sequence
 
 eqns = {
             0: {

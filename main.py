@@ -11,47 +11,66 @@ if __name__ == "__main__":
     vals = [int(i, 2) for i in bitList] #convert bitStrings to integers
 
     objectList = [] #initialize object list to empty
-
-
+    knownObjects = []
     #-------------------------DEBUG------------------
     print("bitString: " + bitString)
     print(bitList)
     print(vals)
-    print(objectList)
     #-------------------------DEBUG------------------
 
     #count by 3 on each iteration
     for i in range(0, len(vals), 4):
-        objectNumber = i
-        equationNumber = vals[i+1]
-        variableNumber = vals[i+2]
-        sequenceNumber = vals[i+3]
+        objectNumber = vals[i] #the object
+        equationNumber = vals[i+1] #the equation
+        variableNumber = vals[i+2] #the variable
+        sequenceNumber = vals[i+3] #the sequence
 
-        object_response = input("Do you see any objects in the problem? ") #ask about the object
-        if(object_response == 'y' or object_response == "yes"): #check if response is affirmative
-            object_name = input("What is the object? ") #get the object's name
+        #check if the object already exists
+        objectExists = False
+        if knownObjects:
+            for item in knownObjects:
+                if objectNumber == item["objectNumber"]:
+                    object_name = item["object_name"] #set the object's name
+                    objectExists = True #object already exists
+                    print("here")
+
+        if objectList: #check if object list is empty
+            if not objectExists: #check if object has already been encountered
+                object_response = input("Do you see any more objects in the problem? ")
+                if(object_response == 'y' or object_response == "yes"): #check if response is affirmative
+                    object_name = input("What is the object? ") #get the object's name
+                else:
+                    print("No more objects seen...skipping")
+                    break
         else:
-            print("No object seen...exiting")
-        #get variable and equation
-        print("variableNumber: ", variableNumber)
-        print("equationNumber: ", equationNumber)
+            object_response = input("Do you see any objects in the problem? ")
+            if(object_response == 'y' or object_response == "yes"): #check if response is affirmative
+                object_name = input("What is the object? ") #get the object's name
+            else:
+                print("No more objects seen...skipping")
+                break
 
+            
         #bounds check by modulus the size
-        if(equationNumber > len(eqns)-1):
+        if(equationNumber >= len(eqns)-1):
             equationNumber = equationNumber % len(eqns)
-        if(eqns[equationNumber]["var_count"] < variableNumber):
-            variableNumber = variableNumber % eqns[equationNumber]["var_count"] #check for out of bounds
+        if(eqns[equationNumber]["var_count"] <= variableNumber):
+            variableNumber = variableNumber % eqns[equationNumber]["var_count"]#check for out of bounds
         
+        print("variableNumber", variableNumber)
+        print("equationNumber", equationNumber)
         variable = eqns[equationNumber]["vars"][variableNumber] #get the variable
-        equation = eqns[equationNumber]["text"] #get the equation
 
         #ask about variable and equation
         response = input(f"Do you know anything about {variable} of {object_name}?")
 
-        #ask for variable and equation number
-        objectList.append({"Object": objectNumber, "equation": equationNumber,
-                            "variable": variableNumber, "sequence": sequenceNumber, "response": response})
-        #dictionary with 3 key value pairs
+        knownObjects.append({"object_name": object_name, "objectNumber": objectNumber})
 
+        #append objectNumber, equationNumber, variableNumber, and sequenceNumber into dictionary
+        if({"object": objectNumber, "equation": equationNumber, "variable": variableNumber, "sequence": sequenceNumber} not in objectList):
+            objectList.append({"Object": objectNumber, "equation": equationNumber,
+                            "variable": variableNumber, "sequence": sequenceNumber, "response": response})
+
+    #print the objectList
     for item in objectList:
         print(item, "\n")
