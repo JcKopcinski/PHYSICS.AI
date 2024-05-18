@@ -1,0 +1,57 @@
+new,past,how new relates to past
+x,x0,x is the position of the object after starting at position x0
+x,v0x,x is the position of the object after starting with speed v0x
+x,dt,x is the position of the object at the end of the time interval dt
+x,ax,x is the position of the object at the end of its movement under acceleration ax
+x,vx,x is the position of the object at the same instant it had speed vx
+x,tf,x is the position of the object at the instant of time tf
+x,ti,x is the position of the object at the end of a time interval that started with the time instant ti
+x0,x,x0 is the position of where the object started before it ended up at position x
+x0,v0x,x0 is the position of the object at the same instant it had speed v0x
+x0,dt,x0 is the position of the object at the beginning of the time interval dt
+x0,ax,x0 is the position of the object just as it took on acceleration ax
+x0,vx,x0 is the position the object started from as it went on to acquire velocity vx
+x0,tf,x0 is the position the object started from as it progressed in time to the instant tf
+x0,ti,x0 is the position of the object at the instant of time ti
+v0x,x,vx0 is the velocity the object had, as it started it movement and ended up at position x
+v0x,x0,vx0 is speed of the object at the same instant it was a position x0
+v0x,dt,vx0 is the speed of the object at the beginning of the time interval dt
+v0x,ax,vx0 is the speed of the object it had as it just began to take on acceleration ax
+v0x,vx,vx0 is the speed of the object started with before it got to speed cx
+v0x,tf,vx0 is the speed of the object as it began at some time that eventually ticked up to time tf
+v0x,ti,vx0 is the speed of the object at the instant of time ti
+dt,x,dt is the time interval that ended when the object got to the position x
+dt,x0,dt is the time interval that started when the object was at a position x0
+dt,v0x,dt is the time interval that started when the object had a speed of v0x
+dt,ax,dt is the time interval during which the object had an acceleration of ax
+dt,vx,dt is the time interval that ended when the object got to a speed of vx
+dt,tf,dt is the time interval that ended at the instant of tf
+dt,ti,dt is the time interval that started at the instant of ti
+ax,x,ax is the acceleration the object had after reaching the position x
+ax,x0,ax is the acceleration the obect had after starting at position x0
+ax,v0x,ax is the acceleration the object had after starting with speed v0x
+ax,dt,ax is the acceleration the object had during the time interval dt
+ax,vx,ax is the acceleration the object had which resulted in it achieving a speed of vx
+ax,tf,ax is the acceleration the object had up to the time instant tf
+ax,ti,ax is the acceleration the object was given at the time instant ti
+vx,x,vx is the speed the object had at the instant it was at position x
+vx,x0,vx is the speed the object attained after starting at some position x0
+vx,v0x,vx is the speed the object attained after starting with a speed of v0x
+vx,dt,vx is the speed the object attained at the end of the time interval dt
+vx,ax,vx is the speed the object attained while it had the acceleration ax
+vx,tf,vx is the speed the object attained at the instat of time tf
+vx,ti,vx is the speed othe object attained after some time interval that started at the instant ti
+tf,x,tf is the instant in time the object was at position x.
+tf,x0,tf is the instant in time the object reached after earlier being at position x0
+tf,v0x,tf is the instant in time the object reached after having earlier started off with speed v0x
+tf,dt,tf is the instant in time that ends the time interval dt
+tf,ax,tf is the instant in time that ends the object having acceleration ax
+tf,vx,tf is the instant in time that the object has the speed vx
+tf,ti,tf is the instant in time that began at the instant in time ti
+ti,x,ti is the instant in time that the object began with as it ultimately arrived at position x
+ti,x0,ti is the instant in time when the object had position x0
+ti,v0x,ti is the instant in time when the object had speed v0x
+ti,dt,ti is the instant in time that started the time interval dt
+ti,ax,ti is the instant in time when the object took on acceleration ax
+ti,vx,ti is the instant in time that ticked up to the time when the object had speed vx
+ti,tf,ti is the instant in time that eventually ticked up to the instant in time tf
